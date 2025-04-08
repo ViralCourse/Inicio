@@ -1,0 +1,384 @@
+:root {
+    --primary-color: #9a34ff; /* Deep purple */
+    --secondary-color: #007bff; /* Electric blue */
+    --background-color: #0a0a1a; /* Very dark blue/purple */
+    --surface-color: #1a1a2e; /* Slightly lighter dark surface */
+    --text-color: #e0e0e0;
+    --text-muted-color: #a0a0c0;
+    --glow-color: rgba(154, 52, 255, 0.6);
+    --font-primary: 'Montserrat', sans-serif;
+    --font-heading: 'Orbitron', sans-serif; /* Futuristic/exclusive feel */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+.header {
+    background-color: rgba(10, 10, 26, 0.8); /* Slightly transparent */
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(154, 52, 255, 0.2);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-shadow: 0 0 8px var(--glow-color);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px; /* Adjust for fixed header */
+    padding-bottom: 60px;
+    background: linear-gradient(180deg, var(--background-color) 70%, var(--surface-color) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem; /* Smaller for mobile */
+    margin-bottom: 1rem;
+    color: #fff;
+    line-height: 1.2;
+    text-shadow: 0 0 10px var(--glow-color);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted-color);
+    margin-bottom: 1.5rem;
+}
+
+.hero-slogan {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.hero-slogan strong {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.hero-slogan span {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-muted-color);
+    margin-top: 0.3rem;
+}
+
+.hero-graphic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%; /* Larger to cover background */
+    max-width: 800px;
+    opacity: 0.15; /* Subtle background element */
+    z-index: 1;
+    pointer-events: none; /* Make sure it doesn't interfere */
+    animation: slowRotate 60s linear infinite;
+}
+
+.hero-graphic svg {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes slowRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px; /* Rounded pill shape */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(154, 52, 255, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(154, 52, 255, 0.6);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(154, 52, 255, 0.3);
+}
+
+
+/* Features Section */
+.features {
+    padding: 60px 0;
+    background-color: var(--surface-color);
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Blue glow */
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile default: one column */
+    gap: 2.5rem;
+}
+
+.feature-item {
+    background-color: var(--background-color); /* Darker than section bg */
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(154, 52, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(10, 10, 26, 0.5);
+}
+
+.feature-icon {
+    margin-bottom: 1rem;
+}
+
+.feature-icon svg {
+    width: 50px;
+    height: 50px;
+    color: var(--primary-color);
+    stroke-width: 1.5; /* Slightly thinner lines */
+}
+
+.feature-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+
+.feature-item p {
+    color: var(--text-muted-color);
+    font-size: 0.95rem;
+}
+
+/* CTA Section */
+.cta {
+    padding: 60px 0;
+    background: linear-gradient(rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="100%"><stop offset="0%" stop-color="%231a1a2e" /><stop offset="100%" stop-color="%230a0a1a" /></linearGradient></defs><rect width="100" height="100" fill="url(%23g)" /><path d="M0 50 L50 0 L100 50 L50 100 Z" fill="none" stroke="%239a34ff" stroke-width="0.2" opacity="0.1" /></svg>');
+    background-size: cover; /* Adjust if SVG pattern is used */
+    text-align: center;
+    border-top: 1px solid rgba(154, 52, 255, 0.2);
+}
+
+.cta h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.cta p {
+    color: var(--text-muted-color);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-slogan {
+    font-size: 1.1rem;
+    margin-top: 2.5rem;
+    font-weight: 400;
+    color: var(--text-muted-color);
+}
+
+.cta-slogan strong {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.cta-slogan span {
+    display: block;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #050510; /* Even darker */
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    border-top: 1px solid rgba(154, 52, 255, 0.1);
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Responsive Design (Mobile First) */
+
+/* Tablet */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    .hero-slogan {
+        font-size: 1.5rem;
+    }
+     .hero-slogan strong {
+        font-size: 1.7rem;
+    }
+    .hero-slogan span {
+        font-size: 1.3rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+     .cta h2 {
+        font-size: 2.8rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .hero .container {
+        flex-direction: row; /* Side by side on desktop, adjust if needed */
+        text-align: left;
+        /* justify-content: space-between; */ /* If graphic is moved */
+    }
+
+     .hero-content {
+        /* Adjust width/margins if graphic is beside content */
+         margin-bottom: 0;
+         max-width: 55%; /* Example adjustment */
+    }
+     .hero-graphic {
+        /* Example: Position to the side */
+        position: relative;
+        width: 40%;
+        max-width: 500px;
+        opacity: 0.3;
+        top: auto;
+        left: auto;
+        transform: none;
+        animation: none; /* Optional: Stop rotation */
+     }
+
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    .feature-grid {
+         /* Four columns for desktop */
+         grid-template-columns: repeat(4, 1fr);
+    }
+}
+
